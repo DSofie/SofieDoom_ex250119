@@ -1,0 +1,19 @@
+UNF = group all data in one entity
+UNF   projects(personnel_number, name, birthdate, lab_code, lab_name, research_code, research_description, research_supervisor)
+
+1NF = eliminate repeating groups by creating separate tables (research_code, research_description, research_supervisor are repeating groups)
+1NF   projects(personnel_number, name, birthdate, lab_code, lab_name)
+         KEYS(personnel_number, lab_code
+      research(personnel_number, research_code, research_description, research_supervisor)
+         KEYS(personnel_number, research_code)
+      
+2NF = every non-key attribute is dependent on the whole key (no partial dependencies)
+2NF   projects(personnel_number, name, birthdate)
+         KEYS(personnel_number)
+      lab(lab_code, lab_name)
+         KEYS(lab_code)
+      research(personnel_number, research_code, research_description, research_supervisor)
+         KEYS(personnel_number, research_code)
+         
+3NF = every non-key attribute cannot be dependent on another non-key attribute
+3NF = 2NF
